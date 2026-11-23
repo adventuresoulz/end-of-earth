@@ -1,4 +1,3 @@
-# end-of-earth
 # End of Earth - A showcase of my coursework in a classic-style RPG
 A rustic RPG adventure that aims to provoke that nostalgic feeling of whimsy and curiosity you had playing old-school JRPGs. This game centers around the forgotten hero named *TBD* who after being sealed for many eras awakens in a strange new world: the modern world. Join us as our hero acclimates to our society of today while an ancient threat shows its evil hand in the modern world and threatens to plunge the world once more into darkness.
 
