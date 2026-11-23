@@ -1,8 +1,32 @@
+def show_actions_menu(): # actions menu
+    print("Choose your next action: ")
+    print("'Look': See what's around the room")
+    print("'Go': If possible move to the next room")  # if not possible should give hint to requirements
+    print("'Status': Show current health and items")
+    print("'Help': See the options again")
+    print("'Menu': Pull up the main menu")
+
+
 # a "playing" game state
 def play_game():
     playing = True
-    while playing: # TODO create an in game playing menu
-        print("you are playing")
+    show_actions_menu()
+    while playing: # TODO finish the in game menu
+        action_choice = input("What will you do? ").strip().lower()
+        match action_choice:
+            case "look":
+                print("Look around the room") # TODO create more information in the 'room' class
+            case "go":
+                print("Finding your way to the next room...") # TODO requirements for moving on to the next room
+            case "status":
+                print("This is where that inventory status page would go.... if i had one") # TODO make this status page
+            case "help":
+                show_actions_menu()
+            case "menu":
+                show_menu()
+                playing = False
+            case _:
+                print("Invalid option")
 
 
 # menu options
