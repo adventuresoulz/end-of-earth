@@ -1,7 +1,8 @@
 from world import starting_room
 
-
+######################################################################
 def show_actions_menu(): # actions menu
+    """This function will show all the available actions after starting the game"""
     print("Choose your next action: ")
     print("'Look': See what's around the room")
     print("'Go': If possible move to the next room based on direction('north,south,east,west)")  # if not possible should give hint to requirements
@@ -9,13 +10,14 @@ def show_actions_menu(): # actions menu
     print("'Help': See the options again")
     print("'Menu': Pull up the main menu")
 
-
+##################################################################
 # a "playing" game state
 def play_game():
+    """This function will play the game after inputting start and is what keeps the actual game play running"""
     playing = True
     current_room = starting_room
     show_actions_menu()
-    while playing: # TODO finish the in game menu
+    while playing: # TODO finish the in game menu still missing status but that will probably come after characters
         action_choice = input("What will you do? ").strip().lower().split()
         if len(action_choice) == 0:
             print("Invalid option")
@@ -27,8 +29,8 @@ def play_game():
                 if len(action_choice) < 2:
                     print("Choose a direction you would like to go")
                 elif action_choice[1] in current_room.exits:
-                    current_room = current_room.exits[action_choice[1]]
-                    print(f"Finding your way to {current_room.name}...") #
+                    current_room = current_room.exits[action_choice[1]] #remember for dictionaries straight brackets access a value
+                    print(f"Finding your way to {current_room.name}...")
                 else:
                     print("You cannot go in that direction")
             case "status":
@@ -41,9 +43,10 @@ def play_game():
             case _:
                 print("Invalid option")
 
-
+###############################################################
 # main menu options
 def show_menu():
+    """Main menu options on first running the program"""
     print("Menu Options: Type in your command")
     print("Type 'start' to begin your adventure")
     print("Type 'continue' to resume your adventure")
@@ -51,9 +54,10 @@ def show_menu():
     print("Type 'quit' to exit")
     print("Type 'help' to see the help menu")
 
-
+###################################################################
 # opening game menu
-def main_menu_loop(player_options):
+def handle_menu_command(player_options):
+    """Main menu for being called inside the loop in main"""
     match player_options:
         case "start":
             print("The forgotten hero slowly comes to....")
@@ -74,10 +78,12 @@ def main_menu_loop(player_options):
         case _:
             print("Invalid option")
             return True
-
-
+##############################################################################################################################
+## todo we need to have character stats of some sort. will require changing up a lot of stuff here                          ##
+## separate class with character builds                                                                                     ##
+##############################################################################################################################
 def main():
-
+    """Try to keep this section clean as possible. Remember what Professor Pisano taught you"""
     print("Welcome to End of Earth!")
     print("This game was made by Anthony")
     print("A text based fantasy adventure set in a far away land where the lost hero awakens\nIn a strange unknown location")
@@ -88,7 +94,7 @@ def main():
 
     while game_running:
         player_options = input("Choose your option: ").strip().lower()
-        game_running = main_menu_loop(player_options)
+        game_running = handle_menu_command(player_options)
 
 
 if __name__ == "__main__":
