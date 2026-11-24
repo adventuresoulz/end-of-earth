@@ -13,3 +13,4 @@ As my progress continues I will update it here and hopefully this keeps me hones
 
 ## Progress log
 Pretty simple menu for now. 5 options to choose from only one of them actually works for now "exit".
+Rooms are minimally functional. The functions for moving rooms is working now and will allow me to create more unique rooms going forward.
