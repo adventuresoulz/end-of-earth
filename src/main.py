@@ -4,7 +4,7 @@ from world import starting_room
 def show_actions_menu(): # actions menu
     print("Choose your next action: ")
     print("'Look': See what's around the room")
-    print("'Go': If possible move to the next room")  # if not possible should give hint to requirements
+    print("'Go': If possible move to the next room based on direction('north,south,east,west)")  # if not possible should give hint to requirements
     print("'Status': Show current health and items")
     print("'Help': See the options again")
     print("'Menu': Pull up the main menu")
@@ -16,12 +16,21 @@ def play_game():
     current_room = starting_room
     show_actions_menu()
     while playing: # TODO finish the in game menu
-        action_choice = input("What will you do? ").strip().lower()
-        match action_choice:
+        action_choice = input("What will you do? ").strip().lower().split()
+        if len(action_choice) == 0:
+            print("Invalid option")
+            continue
+        match action_choice[0]:
             case "look":
-                print(f"{current_room.name} {current_room.description}") # TODO create more information in the 'room' class
+                print(f"{current_room.name} {current_room.description}") # room descriptions
             case "go":
-                print("Finding your way to the next room...") # TODO requirements for moving on to the next room
+                if len(action_choice) < 2:
+                    print("Choose a direction you would like to go")
+                elif action_choice[1] in current_room.exits:
+                    current_room = current_room.exits[action_choice[1]]
+                    print(f"Finding your way to {current_room.name}...") #
+                else:
+                    print("You cannot go in that direction")
             case "status":
                 print("This is where that inventory status page would go.... if i had one") # TODO make this status page
             case "help":
@@ -33,7 +42,7 @@ def play_game():
                 print("Invalid option")
 
 
-# menu options
+# main menu options
 def show_menu():
     print("Menu Options: Type in your command")
     print("Type 'start' to begin your adventure")
