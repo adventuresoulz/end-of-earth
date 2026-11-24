@@ -1,3 +1,6 @@
+from world import starting_room
+
+
 def show_actions_menu(): # actions menu
     print("Choose your next action: ")
     print("'Look': See what's around the room")
@@ -10,12 +13,13 @@ def show_actions_menu(): # actions menu
 # a "playing" game state
 def play_game():
     playing = True
+    current_room = starting_room
     show_actions_menu()
     while playing: # TODO finish the in game menu
         action_choice = input("What will you do? ").strip().lower()
         match action_choice:
             case "look":
-                print("Look around the room") # TODO create more information in the 'room' class
+                print(f"{current_room.name} {current_room.description}") # TODO create more information in the 'room' class
             case "go":
                 print("Finding your way to the next room...") # TODO requirements for moving on to the next room
             case "status":
@@ -53,7 +57,7 @@ def main_menu_loop(player_options):
             print("Game saved")
             return True
         case "help":
-            print("This help menu")
+            show_menu()
             return True
         case "exit" | "quit":
             print("Game exited")
