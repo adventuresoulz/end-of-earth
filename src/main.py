@@ -5,7 +5,7 @@ def show_actions_menu(): # actions menu
     """This function will show all the available actions after starting the game"""
     print("Choose your next action: ")
     print("'Look': See what's around the room")
-    print("'Go': If possible move to the next room based on direction('north,south,east,west)")  # if not possible should give hint to requirements
+    print("'Go': If possible move to the next room based on direction('north,south,east,west')")  # if not possible should give hint to requirements
     print("'Status': Show current health and items")
     print("'Help': See the options again")
     print("'Menu': Pull up the main menu")

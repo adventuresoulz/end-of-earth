@@ -3,4 +3,4 @@ class Room:
         self.name = name
         self.description = description
         self.exits = {}
-######## i thought there'd be more to do here
+## todo create empty dictionary for adding npc to specific rooms later on in world
