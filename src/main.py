@@ -27,7 +27,7 @@ def play_game():
                 print(f"{current_room.name} {current_room.description}") # room descriptions
             case "go":
                 if len(action_choice) < 2:
-                    print("Choose a direction you would like to go")
+                    print("Choose a direction you would like to go with 'go north' or 'go south' or 'go east' or 'go west'")
                 elif action_choice[1] in current_room.exits:
                     current_room = current_room.exits[action_choice[1]] #remember for dictionaries straight brackets access a value
                     print(f"Finding your way to {current_room.name}...")
@@ -64,10 +64,10 @@ def handle_menu_command(player_options):
             play_game()
             return True
         case "continue":
-            print("The journey continues...")
+            print("The journey continues... or so we would like") # todo continue functionality. requires save states so probably filestream like in java
             return True
         case "save":
-            print("Game saved")
+            print("Game saved - in theory")
             return True
         case "help":
             show_menu()
